@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .container {
+        width: 80%;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: repeat(2, 200px);
+        grid-template-areas:
+          "a a a"
+          "b c d";
+        gap: 20px;
+        margin: auto;
+      }
+
+      .container > div:nth-child(1) {
+        border: 2px solid black;
+        grid-area: a;
+        color: black;
+        text-align: center;
+        font-size: 56px;
+      }
+      .container > div:nth-child(2) {
+        grid-area: b;
+        border: 2px solid black;
+      }
+      .container > div:nth-child(3) {
+        border: 2px solid black;
+        grid-area: c;
+      }
+      .container > div:nth-child(4) {
+        border: 2px solid black;
+        grid-area: d;
+      }
+
+      #roll {
+        display: block;
+        margin: auto;
+        height: 43px;
+        width: 150px;
+        margin-top: 34px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div id="winner"></div>
+      <div id="member-1"></div>
+      <div id="member-2"></div>
+      <div id="member-3"></div>
+    </div>
+    <button id="roll">Roll The Dice</button>
+  </body>
+</html>
+<script>
+  document.querySelector("#roll").addEventListener("click", roll);
+  function roll() {
+    document.querySelector("#member-1").innerText = "";
+    document.querySelector("#member-2").innerText = "";
+    document.querySelector("#member-3").innerText = "";
+    var x = document.createElement("h1");
+    var y = document.createElement("h1");
+    var z = document.createElement("h1");
+    var a = document.querySelector("#winner");
+    var b = document.querySelector("#member-1");
+    var c = document.querySelector("#member-2");
+    var d = document.querySelector("#member-3");
+
+    x.innerText = Math.ceil(Math.random() * 6);
+
+    y.innerText = Math.ceil(Math.random() * 6);
+
+    z.innerText = Math.ceil(Math.random() * 6);
+
+    // console.log(x)
+    var p = x.innerText;
+    var q = y.innerText;
+    var r = z.innerText;
+
+    if (p > q && p > r) {
+      a.innerText = "The winner is Member-A";
+      x.style.color = "lightgreen";
+    } else if (p < q && p < r) {
+      x.style.color = "red";
+    } else if (p == q || p == r) {
+      x.style.color = "blue";
+      a.innerText = "Match-Tie";
+
+      //   a.innerText = "Match-Tie";
+    } else {
+      x.style.color = "yellow";
+    }
+
+    if (q > p && q > r) {
+      a.innerText = "The winner is Member-B";
+      y.style.color = "lightgreen";
+    } else if (q < p && q < r) {
+      y.style.color = "red";
+    } else if (q == p || q == r) {
+      y.style.color = "blue";
+
+      a.innerText = "Match-Tie";
+    } else {
+      y.style.color = "yellow";
+    }
+
+    if (r > p && r > q) {
+      a.innerText = "The winner is Member-C";
+      z.style.color = "lightgreen";
+    } else if (r < q && r < p) {
+      z.style.color = "red";
+    } else if (r == q || r == p) {
+      z.style.color = "blue";
+      a.innerText = "Match-Tie";
+    } else {
+      z.style.color = "yellow";
+    }
+
+    if (p == q && r > q) {
+      a.innerText = "The Winner is Member-C";
+    } else if (r == p && q > p) {
+      a.innerText = "The Winner is Member-B";
+    } else if (r == q && p > q) {
+      a.innerText = "The Winner is Member-A";
+    }
+
+    document.querySelector("#member-1").append(x);
+    document.querySelector("#member-2").append(y);
+    document.querySelector("#member-3").append(z);
+
+    //    document.createElement("h1")
+    //    h1.innerText=""
+  }
+</script>
