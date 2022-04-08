@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+
+    //call
+    //Apply
+    //bind
+    let kitchen={
+        name:"kitchen",
+        purose:"cook",
+
+        cookFood: function(order){
+        console.log(`serving ${order} in ${this.name}`)//not copy paste//template literal//this is method
+    }
+    }
+    
+    let livingroom={
+        name:"living room",
+        purpose:"watching tv",
+    }
+    let bedroom={
+        name:"bedroom",
+        purose:"ghapagap"
+    }
+
+    // kitchen.cookFood("maggi")//kitchen
+
+
+    // kitchen.cookFood.call(livingroom,"fanta")//thats the magic👓👓🕶🕶👓👓🧥🥼🧶//livingroom
+    
+
+    // kitchen.cookFood.call(bedroom,"Pizzza")
+    // kitchen.cookFood.apply(bedroom,["samosa"])
+
+    //??//this ---------->pointing to living room
+    //we are trying to change the owner of object
+
+
+    //.call()💋💋💋💋🩰
+    // let thor={
+    //     superpower:"hammer"
+    // }
+    // let captain_a={
+    //     superpower:"shield"
+    // }
+    // function supe(){
+    //     console.log(`I hava ${this.superpower}`)
+    // }//this is function
+
+    // supe.call(thor)
+
+    //.Apply and .call differe
+    
+
+
+    //bind
+    let x=kitchen.cookFood.bind(bedroom,"samosa")
+    // console.log(x)
+    x()
+</script>

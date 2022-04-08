@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form onsubmit="sotreProducts(event)"  action="" id="products">
+   <input type="text" id="name">
+   <input type="text" id="price">
+   <input type="text" id="brand">
+   <input type="submit">
+
+    </form>
+</body>
+</html>
+<script>
+    function Products(a,p,b){
+        this.name=a
+        this.price=p 
+        this.brand=b
+    }
+ let arr=[]
+function sotreProducts(e){
+    e.preventDefault();
+
+  let form=document.querySelector("#products")
+  let name=form.name.value
+//   console.log(name)
+  let price=form.price.value
+  let brand=form.brand.value
+
+
+ let p1=new Products(name,price,brand)
+
+ arr.push(p1)
+ console.log(arr)
+}
+</script>

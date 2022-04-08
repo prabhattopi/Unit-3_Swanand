@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+
+    //PROTOTYPE AND INHERITANCE
+    //inheritance two methods---->  construcor funciton /object.create
+    //object can created by tow mehods
+    const cat={
+        legs:4,
+        tail:true,
+        furs:true,
+        claws:"sharps"
+
+    }
+    // const lion={
+    //     legs:4,
+    //     tail:true,
+    //     furs:true,
+    //     claws:"sharps",
+    //     speed:'60km/h',
+    //     color:"Orange"
+
+    // }
+    // const cheetah={
+    //     legs:4,
+    //     tail:true,
+    //     furs:true,
+    //     claws:"sharps",
+    //     speed:'120km/h',
+    //     color:"yellow"
+
+    // }/////////Not an effincient way
+
+    //Efficient way ------>Object.create()
+
+    const lion=Object.create(cat)
+    console.log("lion",lion)//DNA is prototype lion {}[[Prototype]]: Objectclaws: "sharps"furs: truelegs: 4tail: true[[Prototype]]: Object
+
+
+
+//    const tiger=Object.create(cat)
+//    console.log(tiger)
+const liger=Object.create(lion)//
+console.log(liger)//inhertance ka example hai console me dekho
+//Pehle to empty because lion ka khud ka koi DNA nahi hai but lion ka baap billi hai to uska ho gya
+
+//samjha 
+
+//Prototype=inheritance is same or not (And the answer is No)
+//
+
+//Prototype inheritance why called
+//Check its own property or not we have syntax like 💋💋
+
+
+//consturctor create directly in object not in proptotype😋😋😎😎😎😎😎😎😎😋😋😂
+//how to add in prototype
+function st(n,u){
+    this.name=n
+    this.unit=u
+
+
+}
+
+st.prototype.bio=function (){
+    console.log(`Hello from ${this.name}`)
+}
+let s1=new st("saber",3)
+console.log(s1)
+s1.bio()
+
+</script>
