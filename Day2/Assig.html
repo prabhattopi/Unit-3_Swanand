@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form onsubmit="sotreProducts(event)"  action="" id="products">
+        <input type="text" placeholder="Enter Product Name" id="name">
+        <input type="text" placeholder="Enter Category" id="category">
+        <input type="text" placeholder="Enter image URL" id="image">
+        <input type="text" placeholder="Enter Price of Product" id="price">
+       <select name="" id="gender">
+           <option value="">Select Gender</option>
+           <option value="male">Male</option>
+           <option value="female">Female</option>
+       </select>
+       <select name="" id="sold" >
+           <option value="">Sold</option>
+           <option value="true">True</option>
+           <option value="false">False</option>
+       </select>
+        
+        <input type="submit" id="add">
+     
+         </form>
+</body>
+</html>
+<script>
+  function fa(a,b,c,d,e,f){
+      this.product=a
+      this.category=b
+      this.image=c
+      this.price=d
+      this.gender=e
+      this.sold=f
+  }
+  var Data=JSON.parse(localStorage.getItem("Products"))||[]
+  function sotreProducts(e){
+    
+      e.preventDefault()
+       
+      var x1=document.querySelector("#name").value
+      var x2=document.querySelector("#category").value
+      var x3=document.querySelector("#image").value
+      var x4=document.querySelector("#price").value
+      var x5=document.querySelector("#gender").value
+      var x6=document.querySelector("#sold").value
+
+    let p1=new fa(x1,x2,x3,x4,x5,x6)
+   Data.push(p1)
+    console.log(Data)
+    localStorage.setItem("Products",JSON.stringify(Data))
+    document.querySelector("#name").value=""
+    document.querySelector("#category").value=""
+    document.querySelector("#image").value=""
+    document.querySelector("#price").value=""
+    document.querySelector("#gender").value=""
+    document.querySelector("#sold").value=""
+   
+
+      
+  }
+  
+</script>

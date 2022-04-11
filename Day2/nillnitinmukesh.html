@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+
+    </div>
+</body>
+</html>
+<script>
+    
+    let obj1={
+        name:'Amar',
+        skill:"singer",
+        place:"Goa"
+    }
+    let obj2={
+        name:'Akbar',
+        skill:"Magacian",
+        place:"Mumbai"
+    }
+    let obj3={
+        name:"Anthony",
+        skill:"chef",
+        place:"kashmir"
+    }
+    function fa(sk){
+        console.log(`${this.name} is a ${this.skill} lives in ${this.place}`)
+    }
+    fa.call(obj3)
+</script>

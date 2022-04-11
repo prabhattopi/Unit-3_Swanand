@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+//     let arr=[1,23,5]
+//    console.log(arr.__proto__)
+
+//    let a1=new Array(1,2,3)
+//    console.log(a1)//the new way to take the array
+//    let a2=new myArray(1,23,4)///this show myArray is not defined
+//    //to bqanate hai ham
+//    function myArray(){
+//        console.log(arguments)
+
+//    }
+
+// Let create our owoprototype
+let a1=new Array("x","y","z")
+let a2= new myArray("x","y","z")
+console.log(a1)
+function myArray(){
+    Object.defineProperty(this,"length",{
+        value:0,
+        writable:true,
+        enumerable:false//😣😛😛This is reperesent the element which can be pass from for loop
+    })
+    this.length=arguments.length
+    
+
+    //lhs(index)=rhs(value)
+    for(let i=0;i<this.length;i++){
+        this[i]=arguments[i]
+    }
+
+
+
+}
+myArray.prototype.daltejao=function(value){
+    let x=this.length;
+    this[x]=value;
+    this.length++
+
+}
+myArray.prototype.nikaltejao=function(vlaue){
+    let x=this.length-1;
+    delete this[x]
+    this.length--
+
+}
+a2.daltejao("l")
+a2.daltejao("hat maki")
+a2.nikaltejao()
+a2.nikaltejao()
+
+console.log(Object.keys(a2))//ek dikata hai length bhi aa rah element ke satth
+//vales==khud element
+//keys==index
+</script>

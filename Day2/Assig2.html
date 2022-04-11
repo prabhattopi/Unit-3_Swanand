@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .product {
+        margin: auto;
+        width: 80%;
+        height: 300px;
+        margin-top: 3rem;
+        display: grid;
+        grid-template-columns: repeat(3,1fr);
+        grid-template-rows:auto;
+        gap: 22px;
+        justify-content: center;
+      }
+      .product > div {
+        box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset,
+          rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+        height: 400px;
+        background-color: wheat;
+      }
+      img {
+        object-fit: contain;
+        height: 60%;
+        width: 100%;
+        overflow: hidden;
+      }
+
+      #remove {
+        margin-left: 2rem;
+      }
+      button {
+        border: none;
+        border-radius: 23px;
+        width: 105px;
+        height: 42px;
+        font-size: 24px;
+      }
+      #counter {
+        font-size: 25px;
+      }
+    </style>
+  </head>
+  <body>
+    <form onsubmit="sotreProducts(event)" action="" id="products">
+      <input type="text" placeholder="Enter Product Name" id="name" />
+      <input type="text" placeholder="Enter Category" id="category" />
+      <input type="text" placeholder="Enter image URL" id="image" />
+      <input type="text" placeholder="Enter Price of Product" id="price" />
+      <select name="" id="gender">
+        <option value="">Select Gender</option>
+        <option value="male">Male</option>
+        <option value="female">Female</option>
+      </select>
+      <select name="" id="sold">
+        <option value="">Sold</option>
+        <option value="true">True</option>
+        <option value="false">False</option>
+      </select>
+
+      <input type="submit" id="add" />
+    </form>
+    <div id="counter"></div>
+    <div class="product"></div>
+  </body>
+</html>
+<script>
+  function fa(a, b, c, d, e, f) {
+    this.product = a;
+    this.category = b;
+    this.image = c;
+    this.price = d;
+    this.gender = e;
+    this.sold = f;
+  }
+
+  let Data = JSON.parse(localStorage.getItem("Products")) || [];
+
+  var length = Data.length;
+  document.querySelector(
+    "#counter"
+  ).innerText = `The Total Product is ${length}`;
+  function sotreProducts(e) {
+    e.preventDefault();
+
+    var x1 = document.querySelector("#name").value;
+    var x2 = document.querySelector("#category").value;
+    var x3 = document.querySelector("#image").value;
+    var x4 = document.querySelector("#price").value;
+    var x5 = document.querySelector("#gender").value;
+    var x6 = document.querySelector("#sold").value;
+
+    let p1 = new fa(x1, x2, x3, x4, x5, x6);
+    Data.push(p1);
+    console.log(Data);
+    localStorage.setItem("Products", JSON.stringify(Data));
+    //   document.querySelector("#name").value=""
+    //   document.querySelector("#category").value=""
+    //   document.querySelector("#image").value=""
+    //   document.querySelector("#price").value=""
+    //   document.querySelector("#gender").value=""
+    //   document.querySelector("#sold").value=""
+    window.location.reload();
+  }
+
+  Data.map(function (el, i, arr) {
+    var div = document.createElement("div");
+    let x1 = document.createElement("img");
+    x1.src = el.image;
+    let x2 = document.createElement("h1");
+    x2.innerText = el.product;
+    x2.style.textAlign = "center";
+    let x3 = document.createElement("h3");
+    x3.innerText = `Price: ${el.price}`;
+    let x4 = document.createElement("p");
+    x4.innerText = `Category: ${el.category}`;
+    let x5 = document.createElement("p");
+    x5.innerText = `Gender: ${el.gender}`;
+    var x6 = document.createElement("button");
+    x6.setAttribute("id", "sold");
+    x6.innerText = el.sold;
+    if (x6.innerText == "true") {
+      x6.style.backgroundColor = "red";
+    } else {
+      x6.style.backgroundColor = "lightgreen";
+    }
+    x6.addEventListener("click", function () {
+      if (x6.innerText == "true") {
+        x6.innerText = "false";
+        x6.style.backgroundColor = "lightgreen";
+      } else {
+        x6.innerText = "true";
+        x6.style.backgroundColor = "red";
+      }
+    });
+    var x7 = document.createElement("button");
+    x7.setAttribute("id", "remove");
+    x7.innerText = "Remove";
+
+    x7.addEventListener("click", function () {
+      rev(el, i);
+    });
+
+    div.append(x1, x2, x3, x4, x5, x6, x7);
+    document.querySelector(".product").append(div);
+  });
+
+  function rev(el, i) {
+    Data.splice(i, 1);
+    localStorage.setItem("Products", JSON.stringify(Data));
+    window.location.reload();
+  }
+</script>
