@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+    //promisses in programming
+    //2.fullfilled(success)---> resolve
+    //3.rejected(failure)----->rejected
+    //4.pending
+
+    //Buffering
+    //uploading
+    //transction
+    
+  
+    //Callbacks
+
+
+    //step1:
+    // let url="http://www.memdk.ijsdifj/isdfoisf/.jpg"
+    // function download(url){
+    //    console.log(`Downloading ${url}`)
+    // }
+    // function process(url){
+    //     console.log(`Processing ${url}`)
+    // }
+    // process(url)
+    // download(url)
+  
+
+    //step 2:
+    // let url="http://www.memdk.ijsdifj/isdfoisf/.jpg"
+    // function download(url,Callbacks){
+    //     setTimeout(function(){
+    //    console.log(`Downloading ${url}`)
+    //    Callbacks(url)//step3
+    //     },3000)
+    // }
+    // function process(url){
+    //     console.log(`Processing ${url}`)
+    // }
+    
+    // download(url,process)
+    //we use a callbacks to create dependency
+
+
+    // process(url)//one is depended to another then promisses come in front
+
+    //our learning a fucntion(piece of code) is depended on other code
+
+//  //step4;
+//  let url="http://www.memdk.ijsdifj/isdfoisf/.jpg"
+//     function download(url,Callbacks){
+//         setTimeout(function(){
+//        console.log(`Downloading ${url}`)
+//        Callbacks(url)//step3
+//         },3000)
+//     }
+//     function process(url){
+//         console.log(`Processing ${url}`)
+//     }
+    
+//     download(url,process)
+
+ //step5
+//  let url1="http://www.memdk.ijsdifj/isdfoisf/.jpg"
+//  let url2="http://www.memdk.ijsdifj/isdfoisf/.jpg"
+//  let url3="http://www.memdk.ijsdifj/isdfoisf/.jpg"
+//     function download(url1,Callbacks){
+//         setTimeout(function(){
+//        console.log(`Downloading ${url1}`)
+//        Callbacks(url1)//step3
+//         },3000)
+//     }
+    
+//     //callbacks process-->
+    
+//     download(url1,function process(url1){
+//         console.log(`Processing ${url1}`)
+//         download(url2,function process(url2){
+//         console.log(`Processing ${url2}`)
+        
+  
+//         download(url3,function process(url2){
+//         console.log(`Processing ${url3}`)
+        
+//     })
+
+//     })
+// })//depdendecies ki depedency depedencies
+
+
+
+
+//step6:
+// let url1="http://www.memdk.ijsdifj/isdfoisf/.jpg"
+//  let url2="http://www.memdk.ijsdifj/isdfoisf/.jpg"
+//  let url3="http://www.memdk.ijsdifj/isdfoisf/.jpg"
+//     function download(url1,Callbacks){
+
+
+//         setTimeout(function(){
+//        console.log(`Downloading ${url1}`)//process is depende hai download se
+//        Callbacks(url1)//step3
+//         },3000)
+//     }
+    
+//     //callbacks process-->
+    
+//     download(url1,function process(url1){
+//         console.log(`Processing ${url1}`)
+//         download(url2,function process(url2){
+//         console.log(`Processing ${url2}`)
+        
+  
+//         download(url3,function process(url2){
+//         console.log(`Processing ${url3}`)
+        
+//     })
+
+//     })
+// })
+
+//step7//hero come in fornt of our eyes
+// let url1="http://www.memdk.ijsdifj/isdfoisf/.jpg"
+//  let url2="http://www.memdk.ijsdifj/isdfoisf/.jpg"
+//  let url3="http://www.memdk.ijsdifj/isdfoisf/.jpg"
+//     function download(url){
+
+//      return new Promise(function(resolve,rejected){
+//         setTimeout(function(){
+//        console.log(`Downloading ${url}`)//process is depende hai download se
+//        resolve(url)//step3
+//         },3000)
+//     });
+//     }
+//     function process(url){
+//         console.log(`Processing ${url}`)
+//     }
+//     //callbacks process-->
+    
+//     download(url1).then(function(res){
+//        process(url1);
+//        download(url2).then(function(res){
+//        process(url2);
+//        download(url3).then(function(res){
+//        process(url3);
+       
+       
+// })
+       
+       
+// })
+       
+       
+// })
+       
+
+
+//step8://Pyar ho jayega(isse samjha kya)
+
+let url1="http://www.memdk.ijsdifj/isdfoisf/.jpg"
+ let url2="http://www.memdk.ijsdifj/isdfoisf/.jpg"
+ let url3="http://www.memdk.ijsdifj/isdfoisf/.jpg"
+    function download(url){
+
+     return new Promise(function(resolve,rejected){
+        setTimeout(function(){
+       console.log(`Downloading ${url}`)//process is depende hai download se
+       resolve(url)//step3
+        },3000)
+    });
+    }
+    function process(url){
+        console.log(`Processing ${url}`)
+    }
+    //callbacks process-->
+    
+    async function main(){
+        let d1=await download(url1)
+        process(d1)
+        let d2=await download(url2)
+      process(d2)
+        let d3=await download(url3)
+      process(d3)
+    }
+    main()
+
+
+
+
+</script>

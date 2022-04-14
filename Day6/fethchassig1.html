@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  
+ 
+  </head>
+  <body>
+    <input type="url" id="url" placeholder="Enter your url" />
+   
+    <button onclick="jado()">Submit</button>
+    <div class="container"></div>
+  </body>
+</html>
+<script>
+    function jado(){
+        const options = {
+	method: 'GET',
+	headers: {
+		'X-RapidAPI-Host': 'weatherbit-v1-mashape.p.rapidapi.com',
+		'X-RapidAPI-Key': 'e175533ed2msh9f7705891383a6ap1e5e51jsn7f070c52d8ee'
+	}
+};
+        document.querySelector(".container").innerHTML=""
+  let url = document.querySelector("#url").value;
+  fetch(url,options)
+    .then(function (res) {
+      return res.json();
+    })
+    .then(function (res) {
+        console.log(res)
+        let resi=JSON.stringify(res)
+        let h1=document.createElement("p")
+        h1.innerText=resi
+       
+      document.querySelector(".container").append(h1);
+    })
+    .catch(function (err) {
+      console.log(err);
+
+      let img=document.createElement("img")
+      img.src="https://th.bing.com/th/id/R.3b378d53f780a689b6a9da238dfa3dfa?rik=iq%2bGAOosLcH82Q&riu=http%3a%2f%2fgifimage.net%2fwp-content%2fuploads%2f2017%2f09%2f404-gif-8.gif&ehk=e5I3q%2fjkKsZoji1HZxOvci9TkyR0r6Ml3%2bf079I%2bNrc%3d&risl=&pid=ImgRaw&r=0"
+    //   document.querySelector(".container").innerHTML=null
+      document.querySelector(".container").append(img)
+    });
+    document.querySelector("#url").value=""
+
+    
+
+}
+</script>

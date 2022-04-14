@@ -8,8 +8,12 @@
 </head>
 <body>
     <div class="container">
+        <h1>Amar is chef lives in Goa</h1>
+        <h1>Akbar is Magacian lives in Kashmir</h1>
+        <h1>Anthony is </h1>
 
     </div>
+    <button onclick="maran()">chal na</button>
 </body>
 </html>
 <script>
@@ -29,8 +33,38 @@
         skill:"chef",
         place:"kashmir"
     }
+   
     function fa(sk){
+        
         console.log(`${this.name} is a ${this.skill} lives in ${this.place}`)
     }
+     
+    function maran(){
+        document.querySelector(".container").innerHTML=""
+        let h1=document.createElement("h1")
+    h1.innerText=obj1.name+" "+"is"+" "+obj1.skill+" "+"lives in"+" "+obj1.place
+     document.querySelector(".container").append(h1)
+
+
+
+
+
+        fa.call(obj2)
+    
+    let h3=document.createElement("h1")
+    h3.innerText=obj2.name+" "+"is"+" "+obj2.skill+" "+"lives in"+" "+obj2.place
+     document.querySelector(".container").append(h3)
+    
+
+
+
     fa.call(obj3)
+
+    
+    let h2=document.createElement("h1")
+    h2.innerText=obj3.name+" "+"is"+" "+obj3.skill+" "+"lives in"+" "+obj3.place
+     document.querySelector(".container").append(h2)
+    
+    }
+    
 </script>

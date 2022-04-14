@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <input id="Url" type="url" placeholder="Enter your Image"/>
+    <button onclick="storeImage()">Submit</button>
+</body>
+</html>
+<script>
+ function storeImage(){
+     let image=document.querySelector("#Url").value 
+     //first way this local storage is empty
+
+    let images=JSON.parse(localStorage.getItem("images"))||[]
+     images.push(image)
+     localStorage.setItem("images",JSON.stringify(images))
+
+    document.querySelector("#Url").value= null
+ }
+ 
+</script>

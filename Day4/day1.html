@@ -7,28 +7,76 @@
     <title>Document</title>
 </head>
 <body>
-    <h1 id="timer"></h1>
+    <h1 id="timer">0</h1>
+    <button onclick="cleart()">Stop</button>
+    <button onclick="cleat()">Start</button>
+    <button id="clear" >Clear the display</button>
 </body>
 </html>
 <script>
+  //Asynchrous ka feel
+
+
+
+
+
+  
   //we put in different structure setInterval and settimeout() we dont put in stack
   //we put in queue
   //setTimeout() Two psc Application
-  let h1=document.querySelector("#timer")
+  //let h1=document.querySelector("#timer")
 //   for(let i=0;i<100;i++){
 //       h1.innerText=i//so fast as we only see 1,2,3,4,5.....only see 99
 
 //   }
 //You pass funciton as arguments
 //Annonmous Function or Call function
-let i=0//global
+// let g=document.querySelector("#clear").addEventListener("click",clet)
+// let count=0
+// let i=1//global
+// function clet(){
+//     h1.innerText="0"
+//     i=0
+//     clearInterval(x)
+   
+// }
 
-let x=setInterval(function (){
-    h1.innerText=i
-    i++
-    
-},1000)//funciton
+
+
+
+//  let x//funciton
 // clearInterval(x)//this stop the interval
+// document.querySelector("button").addEventListener("click",clear)
+// if(i==60){
+
+// }
+// function cleat(){
+    
+//     x=setInterval(function (){
+        
+//     h1.innerText=i
+//     i++
+   
+  
+    
+// },1000)
+// }
+
+// function cleart(){
+//   clearInterval(x)
+// }
+
+//  x=setInterval(function(){
+//      if(i==60){
+//          i=0
+//      }
+//      h1.innerText=i
+//      i++
+//  },1000)
+//  function cleart(){
+//      clearInterval(x)//
+//  }
+
 
 
 

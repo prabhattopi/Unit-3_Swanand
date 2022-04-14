@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <img id="image"src="https://c.tenor.com/Tu0MCmJ4TJUAAAAC/load-loading.gif" alt="">
+</body>
+</html>
+<script>
+    //Promisses//funciton.
+    let img=document.querySelector("#image")
+    function checkTransction(){
+        return true
+    }
+ const muPromise= new Promise(function(resolve,rejected){
+  let transction_status=false
+  setTimeout(function(){
+      transction_status=checkTransction()
+      if(transction_status==true){
+          resolve("Payment Successfully done")
+      }
+      else{
+          rejected("Payment Declined")
+      }
+  },3000)
+ })
+//  console.log(muPromise)//return object
+
+muPromise.then(function(res){
+    console.log(res)
+    img.src="https://media4.giphy.com/media/26AHBVKVPECIp6xgY/giphy.gif"
+    //then hamesha success ko lega
+    
+}).catch(function(err){
+    console.log("this my wonderfulll error",err)//catch hamesha error catch
+
+    
+})
+//.catch lega browser walla error nahi ayega but mupromise.catch karge to red walla error ayyega samjha kya be 😂😂😂🤣🤣🤣🤣🤣🤣🤣🤣
+
+
+
+
+</script>

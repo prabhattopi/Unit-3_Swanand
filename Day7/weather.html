@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+    //url-1st thing
+    const url="https://api.openweathermap.org/data/2.5/weather?q=guwahati&appid=af498a3855ab9d1225949c90597cb243"
+    fetch(url).then(function(res){
+       return res.json()//promises hai
+    }).then(function(res){
+        console.log(res.main.temp)
+    }).catch(function(err){
+        console.log(err)
+    })
+
+</script>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container{
+            display: grid;
+            grid-template-columns: repeat(5,1fr);
+            grid-template-rows: auto;
+            gap: 20px;
+
+        }
+    </style>
+</head>
+<body>
+    <h1>Online Store</h1>
+    <div class="container"></div>
+</body>
+</html>
+<script>
+    //four people plan to goa
+    //fetch me url pass ho gya---->to kamm karega
+    //
+    //
+    //try to built online grocery list
+    //
+    const url=`https://reqres.in/api/users?page=2` ; //copy fake Api website product walla
+//    let x=fetch(url)//fetch is promise because it take time like promise
+//    console.log(x)
+// let res;
+fetch(url).then(function(res){
+// console.log(res)//abhi array of object nahi ayya hai samjha kya
+return res.json() //this is promise we have to handle it(//res.json() from stream to a compile data)//like collect data samjha
+
+
+}).then(function(res){
+    // console.log(res)//why two then ands__?/??
+    appendData(res.data)
+})
+.catch(function(err){
+ console.log(err)
+});//
+
+//two then means tow promises create and the other collect data 
+const container=document.querySelector(".container")
+
+//  data=console.log(res)
+ //res ko to data le to nahi sakete
+function appendData(data){
+     
+    data.forEach(function(el,i){
+        let div=document.createElement("div")
+        let first_name=document.createElement("p")
+        first_name.innerText=el.first_name
+        let price=document.createElement("p")
+        price.innerText=el.last_name
+        
+        // let img=document.createElement("img")
+        // img.src=el.image
+        div.append(first_name,price)
+
+      container.append(div)
+    });
+  //requres me res.data do but 
+  //all me res bas samjha
+  
+}
+
+</script>
