@@ -7,29 +7,51 @@
     <title>Document</title>
 </head>
 <body>
-    <input type="text" id="food">
-    <button onclick="orderfood()">Order food</button>
+    <form action="" onsubmit="orderfood(event)">
+    <input type="checkbox" id="food" value="Burger">
+    <input type="checkbox" id="Wateri" value="MaharajPlate">
+    <input type="submit">
+</form>
+    <!-- <button onclick="orderfood()">Order food</button> -->
 </body>
 </html>
 <script>
- function orderfood(){
-     let order=document.querySelector("#food").value 
-     let status="open"
-
-     let mypromise=new Promise(function(resolve,rejected){
+ function orderfood(e){
+     e.preventDefault()
+     let order1=document.querySelector("#food")
+     let order2=document.querySelector("#Wateri")
+    //  let status="open"
+    function khanahi(order){
+     return new Promise(function(resolve,rejected){
          let time=Math.random()*10*1000
    setTimeout(() => {
-       if(status=="open"){
+       if(order.checked==true){
            resolve(order)
+           console.log(order.value)
+           
+          
        }
+       
        else{
            rejected()
        }
+       
    }, time);
      })
+    }
+  async function main(){
+      let d1=khanahi(order1)
+    //   console.log(d1)
+      let d2=await khanahi(order2)
+    
+  }
+  main()
 
-     mypromise.then(function(res){
-         console.log(`${res} is ready`)
-     })
+    
+        
+      
+   
+
  }
+ 
 </script>

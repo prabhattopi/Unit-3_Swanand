@@ -1,24 +1,173 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-</head>
-<body>
-    
-</body>
+    <style>
+      *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      .container {
+        margin: auto;
+        text-align: center;
+        /* border: 2px solid black; */
+        width: 50%;
+        height: auto;
+        margin-left: -10px;
+
+      }
+      .mapouter{
+        margin-top: 23px;
+        /* margin: -1rem; */
+
+      }
+
+      .gmap_canvas {
+        /* overflow: hidden;  */
+        background: none !important;
+        height: 400px;
+         width: 600px; 
+         /* top: 40px; */
+         /* margin: auto; */
+
+         /* margin-top: -20px; */
+      }
+      .cont{
+        display: flex;
+        justify-content: space-between;
+      }
+      .badal{
+        height: 100px;
+        width: 100px;
+      }
+    </style>
+  </head>
+  <body>
+      <button onclick="getweather()">Get weather on location</button>
+    <input type="url" id="city" />
+    <button id="submit" onclick="falto()">Submit</button>
+    <div class="cont">
+    <div class="container"></div>
+    <div class="mapouter">
+      <div class="gmap_canvas">
+        <iframe
+       
+          width="500"
+          height="500"
+          id="gmap_canvas"
+          frameborder="0"
+          scrolling="no"
+         
+         
+          
+        ></iframe>
+      </div>
+    </div>
+  </div>
+  </body>
 </html>
 <script>
-    //url-1st thing
-    const url="https://api.openweathermap.org/data/2.5/weather?q=guwahati&appid=af498a3855ab9d1225949c90597cb243"
-    fetch(url).then(function(res){
-       return res.json()//promises hai
-    }).then(function(res){
-        console.log(res.main.temp)
-    }).catch(function(err){
-        console.log(err)
-    })
+  //url-1st thing
+  //src="jo google map me tha usko neche paste kiya gya hai"
+  //https://api.openweathermap.org/data/2.5/weather?lat={lat}&lon={lon}&appid={API key}
+ 
 
+  function falto() {
+    let valuer = document.querySelector("#city").value;
+    const url = `https://api.openweathermap.org/data/2.5/weather?q=${valuer}&appid=af498a3855ab9d1225949c90597cb243`;
+
+   
+
+    fetch(url)
+      .then(function (res) {
+        return res.json(); //promises hai
+      })
+      .then(function (res) {
+        appendData(res);
+        console.log(res);
+      })
+      .catch(function (err) {
+        console.log(err);
+      });
+    document.querySelector("#city").value = "";
+  }
+  function faltolocation(lat,lon) {
+    // let valuer = document.querySelector("#city").value;
+    const urli = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=af498a3855ab9d1225949c90597cb243`;
+
+   
+
+    fetch(urli)
+      .then(function (res) {
+        return res.json(); //promises hai
+      })
+      .then(function (res) {
+        appendData(res);
+        console.log(res);
+      })
+      .catch(function (err) {
+        console.log(err);
+      });
+    // document.querySelector("#city").value = "";
+  }
+
+
+
+
+  function appendData(data) {
+    let container = document.querySelector(".container");
+    container.innerHTML = "";
+    let map=document.querySelector("#gmap_canvas")
+    map.src=""
+    // data.map(function(el,i){
+
+    // })
+
+    let city = document.createElement("p");
+    city.innerText = `City: ${data.name}`;
+    let min = document.createElement("p");
+    min.innerText = `Minimum Temperature:${Math.round(
+      data.main.temp_min - 273
+    )}°C`;
+    let max = document.createElement("p");
+    max.innerText = `Maximum Temperature:${Math.round(
+      data.main.temp_max - 273
+    )}°C`;
+    let temp = document.createElement("p");
+    temp.innerText = `Current Temperature:${Math.round(
+      data.main.temp - 273
+    )}°C`;
+    let humidity = document.createElement("p");
+    humidity.innerText = `Humidity:${data.main.humidity}`;
+    let image1=document.createElement("img")
+    image1.src="https://i.pinimg.com/originals/95/bd/33/95bd334eb5286ee5bebec0401dd3c9bf.gif"
+    image1.setAttribute("class","badal")
+
+    container.append(city, min, max, temp, humidity,image1);
+
+     map.src=`https://maps.google.com/maps?q=${data.name}&t=&z=13&ie=UTF8&iwloc=&output=embed`
+    //  if(temp.innerText>20)
+
+  }
+  
+  function getweather(){
+    navigator.geolocation.getCurrentPosition(success)
+  function success(position){
+    
+    let crd = position.coords;
+
+console.log('Your current position is:');
+console.log(`Latitude : ${crd.latitude}`);
+console.log(`Longitude: ${crd.longitude}`);
+console.log(`More or less ${crd.accuracy} meters.`);
+faltolocation(crd.latitude,crd.longitude)
+}
+
+  }
+  
+  
 </script>

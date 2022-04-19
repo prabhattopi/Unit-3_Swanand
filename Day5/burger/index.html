@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ordering Burger</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      .container {
+        /* margin: auto; */
+        margin-left: 4px;
+        width: 300px;
+        height: 400px;
+        margin-top: 4rem;
+        background-image: linear-gradient(
+          to right top,
+          #37052d,
+          #4f004f,
+          #5f007b,
+          #5f00af,
+          #3612eb
+        );
+        color: white;
+        border-radius: 34px;
+        text-align: center;
+        padding: 50px;
+      }
+      input {
+        width: 20px;
+        height: 20px;
+        color: #3612eb;
+        background-color: #01080b;
+      }
+      input:nth-child(6) {
+        width: 200px;
+        height: 40px;
+        display: block;
+        margin: auto;
+        /* margin-left: 4px; */
+        margin-top: 1rem;
+        border: none;
+        background-image: linear-gradient(
+          to right top,
+          #1b1f1c,
+          #151a19,
+          #101615,
+          #081011,
+          #01080b
+        );
+        color: white;
+        border-radius: 12px;
+      }
+      .container > div {
+        margin: 10px;
+        margin-right: 4px;
+      }
+      .container > div h1 {
+        margin-bottom: 30px;
+        color: chartreuse;
+      }
+      h2 {
+        margin-right: 4px;
+      }
+      input {
+        margin-left: 10px;
+      }
+      .con {
+        display: flex;
+        flex-direction: row-reverse;
+      }
+      .conta {
+        width: 500px;
+        height: 500px;
+
+        margin-top: 3rem;
+        border: 2px solid black;
+        /* position: absolute; */
+        margin: auto;
+        margin-top: 4rem;
+        object-fit: cover;
+        border-radius: 20px;
+      }
+      img {
+        height: 100%;
+        width: 100%;
+        border-radius: 20px;
+      }
+      .laat {
+        /* border: 2px solid black; */
+        width: max-content;
+        height: max-content;
+        /* margin-left: 50rem; */
+        /* top: 0px; */
+        bottom: 0px;
+        display: block;
+        margin: auto;
+        margin-top: -33rem;
+        /* margin-left: -4rem; */
+        /* margin-right: 4.99rem; */
+        margin-right: 200px;
+      }
+      .laat h1 {
+        font-size: 23px;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- <h1></h1> -->
+    <div class="con">
+      <div class="conta"></div>
+      <!-- <button onclick="clear()">Clear the Table</button> -->
+      <form action="" onsubmit="orderfood(event)">
+        <div class="container">
+          <div>
+            <h1>Menu</h1>
+            <h2>
+              Burger<span
+                ><input class="kha" type="checkbox" value="Burger"
+              /></span>
+            </h2>
+          </div>
+          <div>
+            <h2>
+              Salad<span>
+                <input class="khaa" type="checkbox" value="Salad"
+              /></span>
+            </h2>
+          </div>
+          <div>
+            <h2>
+              Pasta<span>
+                <input class="khaaa" type="checkbox" value="Pasta"
+              /></span>
+            </h2>
+          </div>
+          <div>
+            <h2>
+              Matar Panner<span
+                ><input class="khaaaa" type="checkbox" value="Matar_Panner"
+              /></span>
+            </h2>
+          </div>
+          <div>
+            <h2>
+              Halwa<span
+                ><input class="khaaaaa" type="checkbox" value="Halwa"
+              /></span>
+            </h2>
+          </div>
+          <input type="submit" />
+        
+        </div>
+      </form>
+    </div>
+    <div class="laat"></div>
+
+    <!-- <button onclick="()">Order food</button> -->
+  </body>
+</html>
+<script>
+  // function clear(){
+  //   document.querySelector(".conta>div").innerHTML=null
+  // }
+  function orderfood(e) {
+    e.preventDefault();
+
+    let order1 = document.querySelector(".kha");
+    let order2 = document.querySelector(".khaa");
+    let order3 = document.querySelector(".khaaa");
+    let order4 = document.querySelector(".khaaaa");
+    let order5 = document.querySelector(".khaaaaa");
+    //  let order6=document.querySelector("#Wateri")
+    //  let status="open"
+    function khanahi(order) {
+      return new Promise(function (resolve, rejected) {
+        let time = Math.random() * 10 * 1000;
+        setTimeout(() => {
+          if (order.checked == true) {
+            resolve(order);
+            console.log(order.value);
+            order.checked = "";
+          //   document.querySelector(".conta").innerHTML=null
+          document.querySelector(".conta").innerHTML = null;
+          document.querySelector(".laat").innerHTML = null;
+            
+            
+          } else {
+            rejected();
+            document.querySelector(".conta").innerHTML = null;
+          }
+        }, time);
+      
+
+        
+
+
+
+      });
+    }
+    // document.querySelector(".conta").innerHTML=null
+
+    async function main() {
+      if (order1.checked == true) {
+        let d1 = await khanahi(order1);
+
+        let image = document.createElement("img");
+        image.src = "https://paisley.is/wp-content/uploads/2018/05/Burgers.jpg";
+        document.querySelector(".conta").append(image);
+        let h1 = document.createElement("h1");
+        h1.innerText = `ID:${Math.floor(Math.random() * 10000000)}`;
+        document.querySelector(".laat").append(h1);
+      }
+
+      if (order2.checked == true) {
+        let d2 = await khanahi(order2);
+
+        let image1 = document.createElement("img");
+        image1.src =
+          "https://www.theginghamapron.com/wp-content/uploads/2016/09/IMG_9652.jpg";
+        document.querySelector(".conta").append(image1);
+        let h1 = document.createElement("h1");
+        h1.innerText = `ID:${Math.floor(Math.random() * 10000000)}`;
+        document.querySelector(".laat").append(h1);
+      }
+
+      if (order3.checked == true) {
+        let d3 = await khanahi(order3);
+
+        let image2 = document.createElement("img");
+        image2.src =
+          "https://th.bing.com/th/id/OIP.g3YqYAI54d_wXP7EZJ7qugHaE8?pid=ImgDet&rs=1";
+        document.querySelector(".conta").append(image2);
+        let h1 = document.createElement("h1");
+        h1.innerText = `ID:${Math.floor(Math.random() * 10000000)}`;
+        document.querySelector(".laat").append(h1);
+      }
+
+      if (order4.checked == true) {
+        let d4 = await khanahi(order4);
+        let image3 = document.createElement("img");
+        image3.src =
+          "https://cookinglovers.in/wp-content/uploads/2020/08/IMG_20200813_113447.jpg";
+        document.querySelector(".conta").append(image3);
+        let h1 = document.createElement("h1");
+        h1.innerText = `ID:${Math.floor(Math.random() * 10000000)}`;
+        document.querySelector(".laat").append(h1);
+      }
+      if (order5.checked == true) {
+        let d5 = await khanahi(order5);
+        let image4 = document.createElement("img");
+        image4.src =
+          "https://th.bing.com/th/id/R.c1470adec408f488748d6495254c4cb3?rik=hI2c%2beucqw9%2bLw&riu=http%3a%2f%2fimg.sndimg.com%2ffood%2fimage%2fupload%2fw_614%2ch_461%2fv1%2fimg%2frecipes%2f16%2f06%2f10%2fpickjcJrv.jpg&ehk=ctwYiqBobhXn%2bzQLh%2b1vIV8GItzZBKgt7T3OvWtrpQU%3d&risl=&pid=ImgRaw&r=0";
+        document.querySelector(".conta").append(image4);
+        let h1 = document.createElement("h1");
+        h1.innerText = `ID:${Math.floor(Math.random() * 10000000)}`;
+        document.querySelector(".laat").append(h1);
+      }
+    }
+    main();
+  }
+</script>

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Movie App</h1>
+    <input type="text" id="search"/>
+    <button id="searchBtn" onclick="searchFunction()">Search Movie</button>
+    <br> <br> <br>
+    <div id="showdiv"></div>
+
+</body>
+</html>
+<script>
+    function searchFunction()
+{
+    
+    let value = document.getElementById("search").value;
+    let url = `https://www.omdbapi.com/?i=tt3896198&apikey=da3af64a&t=${value}`;
+    fetch(url)
+    .then(function(res){
+       return res.json();
+        
+    })
+    .then(function(res){
+       //console.log(res)
+       showdiv.innerHTML=null;
+    console.log(res)
+       
+       if(res.Response!="False"){
+        let showMovies = document.createElement("div")
+
+        let movieName = document.createElement("h3")
+        movieName.innerText= res.Title;
+ 
+        let moviePoster = document.createElement("img")
+        moviePoster.src= res.Poster;
+       
+        let movieDate = document.createElement("p")
+        movieDate.innerText= `Released on : ${res.Released}`;
+        console.log(res.Released)
+ 
+         
+        let movieRating = document.createElement("p")
+        movieRating.innerText= `IMDB Rating : ${res.imdbRating}`;
+        console.log(res.imdbRating)
+ 
+        let movieDirector= document.createElement("p")
+        movieDirector.innerText= `Directed By : ${res.Director}`;
+        console.log(res.Director)
+        
+        let movieGenre= document.createElement("p")
+        movieGenre.innerText= `Genre : ${res.Genre}`;
+        console.log(res.Genre)
+        let recomende=document.createElement("p")
+        recomende.innerText="Recomended"
+        if(res.imdbRating>8.5){
+            showMovies.append(recomende,moviePoster, movieName, movieDirector, movieGenre, movieRating, movieDate)
+            showdiv.append(showMovies)
+        }
+        else{
+ 
+       
+        showMovies.append(moviePoster, movieName, movieDirector, movieGenre, movieRating, movieDate)
+        showdiv.append(showMovies)
+        }
+        document.querySelector("#search").value=""
+       }
+       else{
+           
+        let errorText = document.createElement("img")
+           errorText.src="https://cdn.dribbble.com/users/2469324/screenshots/6538803/comp_3.gif"
+           showdiv.append(errorText)
+           document.querySelector("#search").value=""
+       }
+      
+       
+      
+       
+
+   })
+   .catch(function(err){
+       console.log("err",err)
+      
+           let errorText = document.createElement("img")
+           errorText.src="https://cdn.dribbble.com/users/2469324/screenshots/6538803/comp_3.gif"
+           showdiv.append(errorText)
+           document.querySelector("#search").value=""
+        //    showMovies.innerHTML= null;
+      
+   })
+
+   
+}
+
+
+
+</script>
