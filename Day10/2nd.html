@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+    
+    //2.Encpsulation
+    //getter and setter methods
+    class Employee{
+        constructor(){
+           var name;
+           var rating;
+           //private as value get undefined
+           //this walla sabke liye tha
+            
+        }
+        //broker
+        getrating(){
+            return this.rating
+        }
+        getName(){
+            return this.name
+        }
+        setName(vlaue){
+         this.name=vlaue
+         //
+        }
+        setrating(val){
+             this.rating=val
+        }
+
+    }
+    // let el1=new Employee("pablo",10)
+    //we are puttin in capsule known as encpsualation
+  let e1=new Employee()
+  let e2=new Employee()
+  e1.setName("pablo")
+  e2.setName(10)
+
+  //set ke get karo kyuki security
+  //Security ke liye karna padta hai🎆🎆🎆🎆✒✏🗳📤📦📪✉🏷📬✒🖋🖊💼✂👧👧🤴👱‍♀️
+    console.log(e1.getName())
+    console.log(e2.getName())
+
+
+
+</script>

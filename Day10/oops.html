@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+    //oops ka funda
+    //ES6 ----->classes
+    //rista wahi sochh nahi
+    //ES6---->also create objects
+    //not open in brackets in class
+    // class Car{
+    //     constructor(n,b){
+    //         this.name=n
+    //         this.brand=b
+    //     }
+
+    // }
+    // let car1=new Car("Audi","jahak")
+    // console.log(car1)
+
+    //Object oriented Progromming------->object
+    
+    //Objects me method🧦👗🥻👘
+    //Object me store kar lo
+    // obj.sayMyNames()
+
+    //1.Inheritance-------->
+    class Car{
+        constructor(n,b){
+            this.name=n
+            this.wheel=4;
+            
+            this.brand=b
+        }
+
+    }
+    let car1=new Car("Audi","jahak")
+    // console.log(car1)
+    //Yaha pe Car ka constructor se liya  kyuki prototype likhna ke jarruat nahi
+    class Sedan extends Car{
+        constructor(n,b){
+         
+          super(n,b)//super is key doing the robbery collecting the data or taking data parent
+        //   //super constructor se lekhne se bachaye super liko ya niche walla likho kon chahiye
+        
+        //   this.name=n
+        //     this.wheel=4;
+            
+        //     this.brand=b
+        this.sunroof=true
+        }
+    }
+    class ElectricSedan extends Sedan{
+        constructor(n,b,value){
+        super(n,b)//super likho ya this walla likho apke margi
+        this.electric=value
+        }
+    }
+
+    let S2=new ElectricSedan("Vernia","Hyndia",true)
+    console.log(S2)
+
+    let S1=new Sedan("Verna","Hyndia")
+    console.log(S1)
+
+
+
+    
+
+    
+
+
+
+</script>

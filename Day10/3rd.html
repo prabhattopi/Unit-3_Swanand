@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+
+    //3.Abstraction
+    //meaning--->
+
+    class Employee{
+        constructor(n,r){
+          this.name=n;
+          this.rating=r
+
+          this.skills=[]
+           //private as value get undefined
+           //this walla sabke liye tha
+            
+        }
+        learnSkill(skill){
+            this.skills.push(skill)
+        }
+    }
+    let e1=new Employee("pablo",999)
+    e1.learnSkill("oops")
+    console.log(e1)
+
+    //Abstracted wya
+</script>

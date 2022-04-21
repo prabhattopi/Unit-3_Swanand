@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #showvideos{
+            margin: auto;
+            width: 80%;
+            display: grid;
+            grid-template-columns: repeat(4,1fr);
+            grid-template-rows: auto;
+            gap: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Youtube</h1>
+    <input type="text" id="query" >
+    <button onclick="searchVideos()">Search</button>
+
+    
+    <div id="showvideos"></div>
+</body>
+</html>
+<script>
+//https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=30&q=kgf%202&key=[YOUR_API_KEY] HTTP/1.1
+
+//AIzaSyBV0_uvaWm5Quh4td6i3l3e57u7byndm5E
+
+
+const searchVideos=async()=>{
+ try{
+   const query=document.querySelector("#query").value 
+   const url=`https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=30&q=${query}&key=AIzaSyBV0_uvaWm5Quh4td6i3l3e57u7byndm5E`
+   const res=await fetch(url)
+   const data=await res.json()
+   console.log(data.items)
+   append(data.items)
+   
+
+  
+
+
+
+ }catch(err){
+     console.log(err)
+ }
+
+
+}
+const append=(videos)=>{
+  let showdiv=document.getElementById("showvideos")
+  showdiv.innerHTML=null
+  videos.forEach(({id:{videoId},snippet:{title}}) => {
+      let div=document.createElement("div")
+
+      let iframe=document.createElement("iframe")
+      iframe.src=`https://www.youtube.com/embed/${videoId}`
+      iframe.width="100%"
+      iframe.height="100%"
+      iframe.allow="fullscreen"
+
+      let name=document.createElement("h5")
+      name.innerText=title
+      div.append(iframe,name)
+      let data={
+          title,
+          videoId
+      }
+      div.onclick=()=>{
+          showvideo(data)
+      }
+
+      showdiv.append(div)
+      
+  });
+  const showvideo=(data)=>{
+      window.location.href="video.html"
+      localStorage.setItem("video",JSON.stringify(data))
+
+  }
+}
+
+
+
+
+    
+
+
+
+</script>
+
+<!-- <iframe width="560" height="315" src="https://www.youtube.com/embed/r8GtulyaPbQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> -->

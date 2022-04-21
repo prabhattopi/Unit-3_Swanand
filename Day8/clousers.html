@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #query{
+            width: 200px;
+
+        }
+        #movies{
+            border: 1px solid black;
+            height: 206px;
+            width: 206px;
+            border-top: none;
+            overflow: scroll;
+            background-color: blue;
+            color: rgb(8, 11, 12);
+            font-weight: bold;
+            /* font-size: 23px;
+            width: max-content; */
+        
+        }
+    </style>
+</head>
+<body>
+    <h1>Hotstar</h1>
+    <!-- reference as main -->
+    <input oninput="debounce(main,500)" type="text" id="query">
+    <div id="movies"></div>
+</body>
+</html>
+<script>
+   
+    //1st observation
+    //one application used by closure
+    //Hotstar Each letter network request
+    //forerunner
+
+    // 2nd observation
+    // total two request faster type kiya to 
+    //speed of type is difference in betweeen
+    //thats it debouncing
+    // copy paste single searched
+    
+
+    //slow type cost is more in Jethalal
+    //Money is priority
+    //jethalal type of people
+
+    
+
+    //tappu fast type 
+    //it will one or two request
+    
+
+    //You have hotstar "debouncing"
+
+   async function search(){
+       try{
+       const query=document.querySelector("#query").value
+      const url = `https://www.omdbapi.com/?i=tt3896198&apikey=da3af64a&s=${query}`; 
+     
+        const res=await fetch(url)
+       const data=await res.json()
+       const mo=data.Search
+       
+       return mo;//this goes to main funtion ab yaha append nahi karne se bhi hoga samjah
+    //    appenda(mo)
+       console.log("data",data)
+       }
+       catch(err){
+           console.log("err",err)
+
+       }
+    }
+    //    data {Response: 'False', Error: 'Too many results.'}
+    //clousers.html:96 data {Response: 'False', Error: 'Too many results.'}
+
+    //----------->this error is cofirmed because we have too have movies of that movies
+
+    function appenda(datai){
+      
+        //undefined ayya kyuki because undefined.map ho gya
+        //to solution
+        document.querySelector("#movies").innerHTML=null
+        datai.map(function(el,i,arr){
+            let p=document.createElement("p")
+            p.innerText=el.Title
+            document.querySelector("#movies").append(p)
+
+
+        })
+
+    }
+      //Two things keep in mind-------------->🎆🎨🧶🛒🎠🎟🎗🎁🎁🎍🧧
+    //1.goal is we will assemble them in one function
+  //why promise come because async always gives you promise
+  //why in one function because ruku jara sabar karo
+  async function main(){
+
+   let data= await search()
+   if(data===undefined){
+       return false
+   }
+   appenda(data)
+
+
+
+//    console.log(data)
+}
+
+ //2.debouncing 🎗🎨🦺🕶🕶🕶🕶🕶🕶🕶🕶👓👓 Yhei main() me karo
+//optimization--->speed of typing ka
+//setTimeout()----->karke set one sec 
+//but agar pehle kar liye to cleartimeinterval
+let x;
+function debounce(func,delay){
+    //delay is by how much time 
+    if(x){
+        clearTimeout(x)
+    }
+      x=setTimeout(function(){
+        func()
+    },delay);
+    
+    // clearTimeout(x)
+  //a-->debounce--->(main(a))-->
+  //av--->debounce--->main(av)--->id of main(a)
+  //clearTimeout(x)
+//  ave-->debounce-->main(ave)--->id of main(av)--->cleartimeout
+
+ //result comming after 1 sec dekha magic
+}
+
+
+
+
+
+
+   
+
+
+    
+       
+   
+
+</script>

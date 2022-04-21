@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+    //4.polumorphism
+    class Vehicles{
+        run(){
+        console.log("Vehicles is running")
+        }
+
+
+    }
+    class Car extends Vehicles{
+        run(){
+            console.log("car is running")
+        }
+    }
+    class Truck extends Vehicles{
+        run(){
+            console.log("Truck is running")
+        }
+    }
+    let v1=new Vehicles()
+    let v2=new Car()
+    let v3=new Truck()
+    v1.run()
+    v2.run()
+    v3.run()
+    //run is used as prototype me direct kyuki prototype me likhne ki koi jarrurat nahi hai
+
+    //parent-vehicles
+    //child-car,truks
+    //child method hai child nahi to parent walla le lega 
+    //matlab 2 hai chlega nahi to 1 se kam chala lo abhi who kya hai sabko pata hai
+
+</script>

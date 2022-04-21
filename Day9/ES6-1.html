@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ES6-1</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+    //ES6-1
+    //const
+    // const a=10
+    // a=5//throw error in console because we cannot reassigned it
+    // const obj={
+    //     a:1,
+
+
+    // }
+    // obj.bar=2//its is valid 🥎🥎⚾🏀💄💍💄💄💄 you can mutate it not assigned it
+    // console.log(obj)
+
+    // ()=>arrow function
+    // const obj={
+    //     a:10,
+    //     print:()=>{
+    //         console.log(this.a)
+    //     }
+    // }
+    // //undefined because its not binding with this
+    // obj.print()
+
+    let str="maggie"
+    // we can use as spread
+    console.log([...str])
+   //['m', 'a', 'g', 'g', 'i', 'e']0: "m"1: "a"2: "g"3: "g"4: "i"5: "e"length: 6[[Prototype]]: Array(0)
+
+   let arr=[1,2,3,4]
+   let stri="santosh"
+   for (const x of stri) {
+       console.log(x)//value of element of arr as kind of the for loop arr as well as string
+       
+   }
+  
+//    function sum(a,b){
+//        return a+b
+// //    }
+//    let sum=(a,b)=>
+//     a+b
+//    let sum1=a=> a+1
+   
+   
+//    console.log(sum(5,5))//es6 bolta hai return bhi mat karo //for multiple case use brackets
+//    console.log(sum1(1))
+
+// let sum=(a,b,c)=>{
+//     return a+b+c
+// }
+// let arr1=[1,2,3]
+// console.log(sum(...arr))//definitely give the sum
+
+// 2nd Wey 
+let sum=(a,b,c)=>{
+    return a+b+c
+}
+let arr1=[1,2,3]
+console.log(sum(...arr))//rest 
+
+
+
+
+   
+      
+</script>
