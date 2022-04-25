@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+       
+        .container{
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            height: 100vh;
+            color: white;
+            text-align: center;
+            z-index: -1;
+            font-size: 20px;
+            
+        }
+        .container>.today{
+            /* border: 2px solid black; */
+            /* height: max-content;? */
+            background: #000000;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #434343, #000000);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #434343, #000000); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+
+            height: 280px;
+            width: 200px;
+            margin: 10px;
+            padding: 23px;
+            line-height: 2;
+            border-radius: 20px;
+            z-index: -1;
+        }
+       img{
+           height: 100px;
+           width: 100px;
+
+       }       
+    </style>
+  </head>
+  <body>
+    <div class="container">
+    
+      
+     
+  
+</div>
+  </body>
+</html>
+<script>
+  let lat=localStorage.getItem("lat")
+  let lon=localStorage.getItem("lon")
+
+
+const urla = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&units=metric&exclude=hourly&appid=af498a3855ab9d1225949c90597cb243`;
+
+  fetch(urla)
+      .then(function (res) {
+        return res.json(); //promises hai
+      })
+      .then(function (res) {
+        appendData(res.daily);
+        console.log(res);
+      })
+      .catch(function (err) {
+        console.log(err);
+      });
+          function appendData(data){
+       data.map(function(el,i,arr){
+        const weekDay = new Date(el.dt * 1000).toLocaleString("en-us", {
+          weekday: "long"
+        });
+          
+          
+            // cosnt 
+            let div=document.createElement("div")
+            div.setAttribute("class","today")
+            let p=document.createElement("p")
+            p.innerText=weekDay
+            
+            let image=document.createElement("img")
+            image.src=`https://openweathermap.org/img/w/${el.weather[0].icon}.png`
+            let temp1=document.createElement("p")
+            temp1.innerText=`${el.temp.max}°C`
+            let temp2=document.createElement("p")
+            temp2.innerText=`${el.temp.min}°C`
+            div.append(p,image,temp1,temp2)
+            document.querySelector(".container").append(div)
+            document.body.style.backgroundImage =
+        "url('https://source.unsplash.com/1600x900/?" + name + "')";
+          })
+       
+      }
+           
+           
+      //      if(i==7){
+      //       // cosnt 
+      //       let div=document.createElement("div")
+      //       div.setAttribute("class","today")
+      //       let p=document.createElement("p")
+      //       p.innerText=weekDay
+      //       temp=weekDay
+      //       let image=document.createElement("img")
+      //       image.src=`https://openweathermap.org/img/w/${el.weather[0].icon}.png`
+      //       let temp1=document.createElement("p")
+      //       temp1.innerText=el.main.temp_max
+      //       let temp2=document.createElement("p")
+      //       temp2.innerText=el.main.temp_max
+      //       div.append(p,image,temp1,temp2)
+      //       document.querySelector(".container").append(div)
+           
+      //      }
+      //      if(i==15){
+      //       // cosnt 
+      //       let div=document.createElement("div")
+      //       div.setAttribute("class","today")
+      //       let p=document.createElement("p")
+      //       p.innerText=weekDay
+      //       temp=weekDay
+      //       let image=document.createElement("img")
+      //       image.src=`https://openweathermap.org/img/w/${el.weather[0].icon}.png`
+      //       let temp1=document.createElement("p")
+      //       temp1.innerText=el.main.temp_max
+      //       let temp2=document.createElement("p")
+      //       temp2.innerText=el.main.temp_max
+      //       div.append(p,image,temp1,temp2)
+      //       document.querySelector(".container").append(div)
+           
+      //      }
+      //      if(i==23){
+      //       // cosnt 
+      //       let div=document.createElement("div")
+      //       div.setAttribute("class","today")
+      //       let p=document.createElement("p")
+      //       p.innerText=weekDay
+      //       temp=weekDay
+      //       let image=document.createElement("img")
+      //       image.src=`https://openweathermap.org/img/w/${el.weather[0].icon}.png`
+      //       let temp1=document.createElement("p")
+      //       temp1.innerText=el.main.temp_max
+      //       let temp2=document.createElement("p")
+      //       temp2.innerText=el.main.temp_max
+      //       div.append(p,image,temp1,temp2)
+      //       document.querySelector(".container").append(div)
+           
+      //      }
+      //      if(i==31){
+      //       // cosnt 
+      //       let div=document.createElement("div")
+      //       div.setAttribute("class","today")
+      //       let p=document.createElement("p")
+      //       p.innerText=weekDay
+      //       temp=weekDay
+      //       let image=document.createElement("img")
+      //       image.src=`https://openweathermap.org/img/w/${el.weather[0].icon}.png`
+      //       let temp1=document.createElement("p")
+      //       temp1.innerText=el.main.temp_max
+      //       let temp2=document.createElement("p")
+      //       temp2.innerText=el.main.temp_max
+      //       div.append(p,image,temp1,temp2)
+      //       document.querySelector(".container").append(div)
+           
+      //      }
+      //      if(i==39){
+      //       // cosnt 
+      //       let div=document.createElement("div")
+      //       div.setAttribute("class","today")
+      //       let p=document.createElement("p")
+      //       p.innerText=weekDay
+      //       temp=weekDay
+      //       let image=document.createElement("img")
+      //       image.src=`https://openweathermap.org/img/w/${el.weather[0].icon}.png`
+      //       let temp1=document.createElement("p")
+      //       temp1.innerText=el.main.temp_max
+      //       let temp2=document.createElement("p")
+      //       temp2.innerText=el.main.temp_max
+      //       div.append(p,image,temp1,temp2)
+      //       document.querySelector(".container").append(div)
+           
+      //      }
+      //      if(i==40){
+      //       let div=document.createElement("div")
+      //       div.setAttribute("class","today")
+      //       let p=document.createElement("p")
+      //       p.innerText=weekDay
+      //       temp=weekDay
+      //       let image=document.createElement("img")
+      //       image.src=`https://openweathermap.org/img/w/${el.weather[0].icon}.png`
+      //       let temp1=document.createElement("p")
+      //       temp1.innerText=el.main.temp_max
+      //       let temp2=document.createElement("p")
+      //       temp2.innerText=el.main.temp_max
+      //       div.append(p,image,temp1,temp2)
+      //       document.querySelector(".container").append(div)
+              
+      //      }
+          
+      
+
+     
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>

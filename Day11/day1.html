@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+   #container{
+  display: flex;
+  border: solid 1px black;
+   }
+   #input,#output{
+       flex:1;
+       margin: 5%;
+       height: 300px;
+       border: 2px solid black;
+   }
+   #inputtext{
+       width: 90%;
+       height:60%;
+   }
+   
+    </style>
+</head>
+<body>
+    <div id="container">
+    <div id="input">
+        <select name="" id="inputlan">
+            <option value="en">English</option>
+            <option value="hi">Hindi</option>
+        </select>
+      <button onclick="Translate()">Translante</button>
+      <textarea name="input" id="inputtext"></textarea>
+    </div>
+    <div  id="output">
+        
+        <select name="" id="outputlan">
+            
+            <option value="en">English</option>
+            <option value="hi">Hindi</option>
+        </select>
+        <p id="outvalue"></p>
+    </div>
+    </div>
+</body>
+</html>
+<script>
+    //Helper Function----->
+    function read(id){
+
+       return document.getElementById(id).value 
+    }
+    
+
+
+async function Translate(){
+    //Text to Translate
+
+// console.log(input)
+
+  //Post Request------->fist google ko bheja tab na mila hamko
+//I am getting data back 
+//DEFAULT BEHAVIOUR OF FETCH KA HAI KI WOH GET LEGA LEKEN POST KE LIYE HMKO LIKHNA PADEKA
+try{
+    let input=read("inputtext")
+    
+    const inputland=read("inputlan")
+    const outland=read("outputlan")
+  const res=await fetch(`https://libretranslate.de/translate`,{
+  method:"POST",
+  body:JSON.stringify({
+      q:input,
+      source:inputland,
+      target:outland,
+      format:'text'
+  }),
+  //additinal information about oru request that server might need to know
+  headers:{
+      "Content-Type":"application/json",
+  },
+ 
+  
+})
+// console.log(await res.json())
+const {translatedText}=await res.json()
+document.getElementById("outvalue").innerText= translatedText
+}
+catch(err){
+    console.log(err)
+}
+}
+</script>

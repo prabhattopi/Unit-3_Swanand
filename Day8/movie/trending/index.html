@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+Bhaijaan+2:wght@700&family=Poppins:wght@200&family=Roboto:wght@300&display=swap" rel="stylesheet">
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+        
+     .upperpart{
+         background-color: rgb(29, 29, 29);
+         top: 0;
+         right:0;
+         /* position: sticky; */
+         width: 100%;
+         height: 100%;
+         z-index: 100;
+     }
+     .upperpart .conta{
+         display: flex;
+         justify-content: center;
+         align-items: center;
+         font-size: 23px;
+         height: 4rem;
+         padding: 0.5rem 0;
+         position: relative;
+
+
+     }
+     .upperpart .conta .back{
+         background-color: antiquewhite;
+         border-radius: 5px;
+         margin: 10px;
+         cursor: pointer;
+         position: relative;
+     }
+     .upperpart .conta .back a{
+         margin: 2rem;
+         text-decoration: none;
+         color: rgb(217, 157, 6);
+         font-weight: bold;
+         cursor: pointer;
+
+     }
+     .co{
+         color: rgb(240, 236, 11);
+         font-size: 22px;
+         text-transform: uppercase;
+         letter-spacing: 0.5rem;
+        font-style: italic;
+        top: 0;
+        position: sticky;
+        width: 100%;
+        height: 100%;
+        z-index: 100;
+
+     }
+     .wholecontainer{
+         display: flex;
+         justify-content: space-between;
+         align-items: flex-end;
+     }
+     .container{
+         /* width: ; */
+         /* width: 70%; */
+         margin: auto;
+         margin-right: 2rem;
+
+         display: grid;
+         grid-template-columns: repeat(4,1fr);
+         grid-template-rows: auto;
+         gap: 20px;
+         /* justify-content: space-around; */
+         /* box-shadow: 0 0 0 0 rgb(184, 175, 175); */
+     }
+     .dabba{
+        /* background: #7b4397;  fallback for old browsers */
+/* background: -webkit-linear-gradient(to right, #dc2430, #7b4397);  /* Chrome 10-25, Safari 5.1-6 */
+/* background: linear-gradient(to right, #dc2430, #7b4397); W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */ 
+ 
+ width: 200px;
+ border-radius: 12px;
+ box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+ padding: 0.5rem;
+ 
+     }
+
+     img{
+         width: 100%;
+         height: 300px;
+         object-fit: cover;
+         border-radius: 12px;
+         z-index: 100;
+         /* position: absolute; */
+
+     }
+     .circle{
+         border: 2px solid black;
+         width: 40px;
+         height: 40px;
+         /* margin: auto; */
+         margin-left: 1rem ;
+         margin-top: -2rem;
+         position: relative;
+         border-radius: 50%;
+         background: #606c88;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #3f4c6b, #606c88);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #3f4c6b, #606c88); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+text-align: center;
+/* color: wheat; */
+/* padding: px; */
+
+
+         
+     }
+     .circle>p{
+         text-align: center;
+         margin: auto;
+         font-size: 14px;
+         margin-top: 0.5rem;
+         /* margin-bottom: 1rem; */
+         /* background: #7b4397;  /* fallback for old browsers */
+/* background: -webkit-linear-gradient(to right, #dc2430, #7b4397);  /* Chrome 10-25, Safari 5.1-6 */
+/* background: linear-gradient(to right, #dc2430, #7b4397); W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */ 
+/* border-radius: 50%; */
+/* width: 90%;
+height: 90%; */
+font-weight:bold;
+color: rgb(184, 245, 16);
+letter-spacing: 1.3px;
+ 
+         
+     }
+     .title{
+         /* text-align: center; */
+         /* margin: auto; */
+         position: relative;
+         color:black;
+         margin-top: 3px;
+         line-height: 1.2;
+         font-size: 15px;
+         font-weight: bold;
+         height: 33px;
+
+         
+     }
+     .releasedate{
+         font-weight: bold;
+         margin-top: 8px
+     }
+
+    </style>
+</head>
+<body>
+    <div class="upperpart">
+        <div class="conta">
+            <div class="back">
+        <a href="index.html">Home</a>
+    </div>
+    <div class="back">
+        <a href="signin.html">Singin</a>
+    </div>
+
+        <div class="back">
+        <a href="Subscribe">Subscribe</a>
+    </div>
+
+        <div class="back">
+        <a href="Login">Login</a>
+    </div>
+    </div>
+</div>
+<div class="co">
+    <h2>Trending-Movies</h2>
+</div>
+<div class="wholecontainer">
+<div class="container1"></div>
+<div class="container">
+
+</div>
+</div>
+</body>
+</html>
+<script>
+    //https://api.themoviedb.org/3/movie/550?api_key=1bd0b54ac91eaaa64e894dba04149d5a
+    const url=`https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=1bd0b54ac91eaaa64e894dba04149d5a`
+    fetch(url).then(function(res){
+        return res.json()
+
+    }).then(function(res){
+        console.log(res.results)
+        displaydata(res.results)
+    }).catch(function(err){
+        console.log(err)
+    })
+
+
+    function displaydata(data){
+        document.querySelector(".container").innerHTML=null
+
+        data.map(function(el,i){
+          
+            let div=document.createElement("div")
+            div.setAttribute("class","dabba")
+            let image=document.createElement("img")
+
+            
+            image.src=`https://www.themoviedb.org/t/p/w220_and_h330_face${el.poster_path}`
+            let p=document.createElement("p")
+            p.innerText=el.vote_average*10+"%"
+
+            let div1=document.createElement("div")
+            div1.setAttribute("class","circle")
+            div1.append(p)
+            let title=document.createElement("p")
+            title.setAttribute("class","title")
+            title.innerText=el.title
+            let p2=document.createElement("p")
+            p2.innerText=el.release_date
+            p2.setAttribute("class","releasedate")
+            if(el.poster_path!=null){
+            div.append(image,div1,title,p2)
+            document.querySelector(".container").append(div)
+            }
+          
+
+          
+        })
+    }
+
+
+</script>
