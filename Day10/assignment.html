@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+//Problem------>1(a)
+class Grandfather{
+    constructor(n,b,c){
+        this.surname="Singh"
+        this.name=n
+        this.habbit=b
+        this.Timepass=c
+
+    }
+}
+class Father extends Grandfather{
+    constructor(n,b,c){
+        super(n,b,c)
+    }
+}
+
+class Me extends Grandfather{
+    constructor(n,b,c){
+        super(n,b,c)
+    }
+}
+let Grandfathe=new Grandfather("(Lt)Kameshar Prasad","Gardening","GossipsWithFriends")
+console.log(Grandfathe)
+let Fathe=new Father("Mithilesh","Advising me allTime","I havenot seen in my wholelife")
+console.log(Fathe)
+let M=new Me("Prabhat Ranjan","Coding and Coding all Time","Masai Join karne baad nahi kar sakte")
+console.log(M)
+
+
+
+//Problem--->1(b)
+    class Cat{
+        constructor(n,b){
+            this.legs=4
+            this.color=n
+            this.type=b
+        }
+
+    }
+    class Leopard extends Cat{
+        constructor(n,b,speed){
+            super(n,b)
+                this.speed=speed
+            
+            
+        }
+    }
+    let s1=new Leopard("Yellow","Leopard","250km/h")
+    console.log(s1)
+
+
+//PRoblem 2(a)----->
+class OnlinePayment{
+    constructor(){
+        let name;
+        let Password;
+    }
+    getname(){
+        return this.name
+    }
+    getPassword(){
+        return this.Password
+    }
+    setname(va){
+     this.name=va
+    }
+    setPassword(va){
+        this.Password=va
+    }
+}
+let e1=new OnlinePayment()
+let e2=new OnlinePayment()
+e1.setname("Pablo")
+e2.setPassword("Swanand")
+console.log(e1.getname())
+console.log(e2.getPassword())
+
+//Problem---->3(a)(Abstraction)
+
+class cheater{
+    constructor(n,r){
+        this.salad=n;
+        this.juice=r
+        this.tastyfood=[]
+    }
+    foodplate(tastyitems){
+        this.tastyfood.push(tastyitems)
+    }
+}
+let foodie1=new cheater("carrot","bittergourd")
+foodie1.foodplate(["panner masala","Kashmiri Pulao","chocolates"])
+console.log(foodie1)
+
+//It is simillar like we use in unit one as this can be.
+
+//Problem----->4//Polymorphism
+
+//Polymorhism is just like as grandfather Example
+
+//######
+ class Masai{
+     run(){
+         console.log("Transformation in Education")
+     }
+ }
+ class Developers extends Masai{
+     run(){
+         console.log("Full Stack Developer")
+     }
+ }
+ class Heavy_Developers extends Masai{
+     run(){
+         console.log("All critics shut their mouth")
+     }
+ }
+ let World=new Masai()
+ let Boss=new Developers()
+ let Universe_Boss=new Heavy_Developers
+
+ World.run()
+ Boss.run()
+ Universe_Boss.run()
+</script>

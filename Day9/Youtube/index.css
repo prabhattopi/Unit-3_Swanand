@@ -1,0 +1,238 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+*:focus{
+    outline: none;
+}
+body{
+    position: relative;
+    background: wheat;
+    font-family: "roboto";
+}
+.navbar{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 60px;
+    background: white;
+    display: flex;
+    align-items: center;
+    padding: 0 2.5vh;
+}
+.toggle-btn{
+    width: 20px;
+    height: 10px;
+    position: relative;
+    cursor: pointer;
+    /* background-color: black; */
+
+}
+.toggle-btn span{
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: gray;
+}
+.toggle-btn span:nth-child(1){
+    top: 0;
+}
+.toggle-btn span:nth-child(3){
+    top: 100%;
+}
+.logo{
+    height: 60px;
+   margin: -2px 30px 0;
+
+}
+.search-box{
+    position: relative;
+    max-width: 500px;
+    width: 50%;
+    height: 35px;
+    display: flex;
+
+}
+.search-bar{
+    width: 85%;
+    height: 100%;
+    border: 2px solid black;
+    padding: 0 20px;
+    font-size: 16px;
+    text-transform: capitalize;
+
+}
+ .search-btn{
+    width: 7%;
+    height: 100%;
+    background-color: rgb(236, 222, 222);
+    border: 2px solid rgb(157, 152, 152);
+    padding: 5px 0;
+    border-left: none;
+    border-radius: 50%;
+    border-top-left-radius: 0%;
+    border-bottom-left-radius: 0%;
+    /* border-top-right-radius: 0%;
+    border-top-right-radius: 0%; */
+} 
+
+.search-btn svg{
+    height: 100%;
+    
+}
+.user-options{
+    height: 35px;
+    display: flex;
+    margin-left: auto;
+     justify-content: space-between;
+    align-items: center;
+}
+.user-options .icon{
+    height: 80%;
+    margin-right: 23px;
+    cursor: pointer;
+}
+.user-dp{
+    cursor: pointer;
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+    overflow: hidden;
+}
+.user-dp img{
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+
+}
+
+
+
+/* slidebar */
+.slide-bar{
+    position: fixed;
+    top: 60px;
+    left: 0;
+    min-width: 259px;
+    width: 250px;
+    height: calc(100vh - 60px);
+    background-color: white;
+    padding: 10px;
+}
+.links{
+    display: block;
+    padding: 10px 20px;
+    width: 100%;
+    display: flex;
+     align-items: center;
+     text-transform: capitalize;
+     color: black;
+     font-size: 14px;
+     font-weight: 500;
+     text-decoration: none;
+}
+.links svg{
+    height: 28px;
+    margin-right: 15px;
+}
+.links.active svg{
+    color: red;
+}
+.links:hover,.links.links.active{
+    background-color: lightgray;
+
+}
+.seperator{
+    border: none;
+    border-bottom: 1px solid lightgray;
+    margin: 20px 0;
+     /* z-index: 100; */
+    /* position: relative; */ 
+}
+.filters{
+    position: fixed;
+    left: 250px;
+    top: 60px;
+    width: calc(100% - 250px);
+    height: 60px;
+    background-color: white;
+    border-top: 1px solid rgb(201, 194, 194);
+    border-bottom: 1px solid white;
+    padding: 0 20px;
+    display: flex;
+    align-items:center;
+    overflow-x: auto;
+    overflow-y: hidden;
+
+}
+.filters::-webkit-scrollbar{
+    display: none;
+}
+.filter-options{
+    flex: 0 0 auto;
+    padding: 10px 20px;
+    border-radius: 50px;
+    background-color: bisque;
+    border: 1px solid bisque;
+    margin: 10px;
+    color: black;
+    font-size: 15px;
+    cursor: pointer;
+}
+.filter-options.active{
+    background-color: black;
+    color: white;
+}
+.video-container{
+    width: calc(100% - 250px);
+    margin-top: 120px;
+    margin-left: 250px;
+    padding: 20px;
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    grid-gap: 20px 5px;
+    overflow-x: hidden;
+    /* background-color:black; */
+}
+.video{
+    min-height: 250px;
+    height: auto;
+
+}
+.thumbnail{
+    width: 100%;
+    height: 150px;
+    object-fit:cover;
+}
+.content{
+    width: 100%;
+    height: 100px;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    /* background-color: black; */
+
+
+}
+.channel-icon{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 10px;
+
+}
+.title{
+    width: 100%;
+    height: 40px;
+    overflow: hidden;
+}
+.channel-name{
+    font-size: 14px;
+    margin: 2px 0;
+    color: gray;
+}

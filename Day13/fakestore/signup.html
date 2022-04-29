@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./styles/indes.css">
+</head>
+<body>
+    <div id="navbar">
+
+    </div>
+    <form>
+        <input type="text" id="name" placeholder="Enter Your Name">
+        <input type="text" id="email" placeholder="Enter your email">
+        <input type="text" id="password" placeholder="Enter your password">
+        <input type="text" id="username">
+        <input type="number" id="mobile">
+        <input type="text" id="description" placeholder="Description">
+        <button id="submit">Submit</button>
+    </form>
+</body>
+</html>
+
+<script
+type="module">
+import navbar from "./componets/navbar.js"
+    document.getElementById("navbar").innerHTML=navbar()
+  
+    //always use addevent listner to import warna refresh ho jayega
+
+    let register = async (e) => {
+    e.preventDefault();
+
+    let form_data = {
+      name: document.getElementById("name").value,
+      email: document.getElementById("email").value,
+      password: document.getElementById("password").value,
+      username: document.getElementById("username").value,
+      mobile: document.getElementById("mobile").value,
+      description: document.getElementById("description").value,
+    };
+
+    form_data = JSON.stringify(form_data);
+
+    let res = await fetch(
+      "https://masai-api-mocker.herokuapp.com/auth/register",
+      {
+        method: "POST",
+        body: form_data,
+        // mode: "no-cors"
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
+    );
+
+    let data = await res.json();
+    console.log(data);
+  };
+
+  document.getElementById("submit").addEventListener("click", register);
+  
+</script>

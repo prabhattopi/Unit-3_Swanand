@@ -1,0 +1,45 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+body{
+    background-color: blueviolet;
+}
+#navbar{
+    background-color: lightgray;
+    border: 1px solid black;
+   
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-basis: auto;
+    text-decoration: none;
+}
+#navbar a{
+    text-decoration: none;
+}
+#options{
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  
+
+}
+#options a{
+    text-decoration: none;
+    margin: 7px;
+    
+
+}
+#container{
+    margin-top: 1rem;
+    
+}
+#container>p{
+    text-align: center;
+    margin: 7px;
+    
+}

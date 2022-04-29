@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text-Translation</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+Bhaijaan+2:wght@700&family=Poppins:wght@200;300&family=Roboto:wght@300&display=swap" rel="stylesheet">
+<script
+      src="https://kit.fontawesome.com/24c494a6b6.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <!-- <h1 class="h1">The Best Translation App
+    </h1> -->
+    <div class="container">
+        <div class="wrapper">
+            <div class="text-input">
+                <textarea class="from-text" placeholder="Enter Text" onkeyup="debounce(main,500)"></textarea>
+                <textarea class="to-text" placeholder="Translation" readonly disabled ></textarea>
+            </div>
+            <ul class="controls">
+                <li class="row from">
+                    <div class="icons">
+                      <i id="from" class="fas fa-volume-up"></i>
+                      <i id="from" class="fas fa-copy"></i>
+
+                    </div>
+                    <select name="" id="">
+                      
+                    </select>
+                </li>
+                <li class="exchange"><i class="fas fa-exchange-alt"></i></li>
+                <li class="row from">
+                    <select name="" id="">
+                      
+                    </select>
+                    <div class="icons">
+                      <i id="to" class="fas fa-volume-up"></i>
+                      <i id="to" class="fas fa-copy"></i>
+
+                    </div>
+                    
+                </li>
+            </ul>
+        </div>
+        <button>Translate Text</button>
+    </div>
+</body>
+</html>
+<script src="coutries.js"></script>
+<script src="index.js"></script>

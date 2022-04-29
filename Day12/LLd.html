@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+    //LLD------->LOw level design(building bloks)
+    //High Level Design------>parliament
+    //
+    //0.Vehicles
+    //1.Parking Lot
+    //2.Parking floor
+    //3.Parking Sloots
+    //4.Tickets
+
+    class Vehicle{
+        constructor(type,regNumber,color){
+            //we are adding to differeciate iska value ko
+            //Maximum callstack
+            //oneerror is to set the value
+
+            this._type=type
+            this._regNumber=regNumber;
+            this._color=color;
+
+        }
+        get abradabra(){//this is new from the below**
+            return this._type
+        }
+        set type(value){
+        this._type=value;
+    }
+        // getType(){**
+        //     return this.type
+        // }
+
+    }
+    class Car extends Vehicle{
+
+        constructor(regNumber,color){
+            super("car",regNumber,color)
+        }
+    }
+    class Bike extends Vehicle{
+        constructor(regNumber,color){
+            super("Bike",regNumber,color)
+        }
+    }
+    class Truck extends Vehicle{
+        constructor(regNumber,color){
+            super("Truck",regNumber,color)
+        }
+    }
+    //getter and setter Methods
+    //
+    
+    let c1=new Car("MH 12_1234","black")
+
+    console.log(c1.abradabra)//abradabra is get the type so we can access it
+
+
+    //INdividual parking sloot
+    class Slot{
+        constructor(type,number){
+            this.number=number
+            this.type=type
+            this._isBooked=false
+
+        }
+        get isBooked(){
+            return this._isBooked
+        }
+        set isBooked(value){
+            this._isBooked=value
+        }
+    }
+
+    class ParkingFloor{
+        constructor(floornumber,maxFloor){
+            this.floornumber=floornumber
+            this._parkingspots=[]//we need to push parking slots
+            for(let i=0;i<maxFloor;i++){
+                if(i===0){
+                    //push Truck
+                    this._parkingspots.push(new Slot("Truck",i))
+                }
+                else if(i==1){
+                    //push bikes
+                    this._parkingspots.push(new Slot("Bike",i))
+                }
+                else{
+                    //push cars
+                    this._parkingspots.push(new Slot("Car",i))
+                }
+            }
+
+        }
+        get parkingspots(){
+            return this._parkingspots
+        }
+       
+    }
+    //two kinds of things it needs to hold multiple value
+    //ParkingLot----->has multiple floors
+
+
+    class ParkingLot{
+        constructor(number){
+            this._floors=[]
+            this._numberofFloors=number
+         for(let i=0;i<number;i++){
+             this._floors[i]=new ParkingFloor(i,number)//kitna chij accept
+
+
+
+
+         }
+
+
+        }
+
+        get numberofFloors(){
+            return this._numberofFloors
+        }
+        get floors(){
+            return this._floors
+        }
+        set floors(value){
+            this._floor=value
+        }
+
+  //most important
+  parkVehicle(Vehicle){
+      let slot = this.findSlot(Vehicle.type)
+      if(!slot){
+          console.log("No slots")
+          return false
+      }
+      this.bookslot(slot)//128
+      let Ticket=new Ticket(slot.floornumber,slot.slot.number)
+
+
+  }
+
+
+
+
+
+
+        findSlot(type){
+            //Floors-->Each floor to checkking
+            for(let i=0;i<this._numberofFloors;i++){
+                for(let slot of this._floors[i]._parkingspots){
+                    // console.log("Slot",slot)
+                    if(slot.type==type && !slot._isBooked){
+                        // console.log(slot)
+                        return {floornumber:i, slot:slot}
+                        //object destructring
+
+
+
+                    }
+                }
+
+
+            }
+            return false
+
+        } 
+        bookslot(slot){
+          slot.Slot._isBooked=true
+          console.log("Slot is Booked",slot)
+          return true;
+
+        }
+
+
+    }
+    class Ticket{
+        constructor(floornumber,slot){
+            this.floorNumber=floornumber;
+            this.slotNumber=slot;
+            this.issuedAt=new Date()
+        }
+    }
+    let pf1=new ParkingLot(3)
+    // console.log(pf1)
+    pf1.findSlot("Bike")
+
+</script>

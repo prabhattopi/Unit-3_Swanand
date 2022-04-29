@@ -16,40 +16,41 @@
     //getter and setter methods
     class Employee{
         constructor(){
-           var name;
-           var rating;
+           var _name;
+           let _rating;
            //private as value get undefined
            //this walla sabke liye tha
             
         }
         //broker
         getrating(){
-            return this.rating
+            return this._rating
         }
         getName(){
-            return this.name
+            return this._name
         }
         setName(vlaue){
-         this.name=vlaue
+         this._name=vlaue
          //
         }
         setrating(val){
-             this.rating=val
+             this._rating=val
         }
+      
         
 
     }
     // let el1=new Employee("pablo",10)
     //we are puttin in capsule known as encpsualation
-  let e1=new Employee()
+ 
+    let e1=new Employee()
   let e2=new Employee()
   e1.setName("pablo")
   e2.setName(10)
- 
 
   //set ke get karo kyuki security
   //Security ke liye karna padta hai🎆🎆🎆🎆✒✏🗳📤📦📪✉🏷📬✒🖋🖊💼✂👧👧🤴👱‍♀️
-    console.log(e1.getName())
+    console.log(e1.name)
     console.log(e2.getName())
 
 
