@@ -6,8 +6,7 @@ let ApiKey=`AIzaSyBV0_uvaWm5Quh4td6i3l3e57u7byndm5E`
  
 
 // let searchLink="https://www.youtube.com/results?search_query="
-const url=`https://youtube.googleapis.com/youtube/v3/search?`
-const searchInput=document.querySelector(".search-bar").value;
+
   
 // let datai=[]
 
@@ -181,6 +180,88 @@ const videogrid=(data)=>{
   
 
 // 
+
+
+const searchBtn=document.querySelector(".search-btn")
+
+searchBtn.addEventListener("click",()=>{
+    const searchInput=document.querySelector(".search-bar").value;
+    let url=`https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=30&q=${searchInput}&key=AIzaSyBV0_uvaWm5Quh4td6i3l3e57u7byndm5E`
+
+ 
+    
+
+
+      
+fetch(url)
+   
+  
+    
+
+
+
+.then(res=>res.json())
+.then(data=>{
+    console.log(data)
+ data.items.forEach(item=>{
+    getQueryIcon(item)
+    
+     
+    
+ })
+//  data.items.forEach(item=>{
+//      getquery(item)
+    
+     
+    
+//  })
+//  data.items.map(function(el){
+//      datai.push(el)
+//  })
+}).catch(err=>console.log(err));
+const getQueryIcon=(videos_data)=>{
+    fetch(channel_http + new URLSearchParams({
+        key: ApiKey,
+        part:"snippet",
+        // chart:"mostPopular",
+        // maxResults:1,
+        // regionCode:"IN",
+        id: videos_data.snippet.channelId,
+        
+})).then(res=>res.json()).then(data=>{
+   
+
+//  console.log(data)
+videos_data.channelThumbnail=data.items[0].snippet.thumbnails.default.url;
+
+
+// console.log(videos_data)
+ videolat(videos_data)
+//  flato(videos_data)
+ 
+})
+}
+videocontainer.innerHTML=null
+const videolat=(data)=>{
+    videocontainer.innerHTML+=` <div class="video" onclick="location.href='https://youtube.com/watch?v=${data.id.videoId}'">
+    <img src="${data.snippet.thumbnails.high.url}" alt="" class="thumbnail">
+    <div class="content">
+        <img src="${data.channelThumbnail}" alt="" class="channel-icon">
+        <div class="info">
+            <h4 class="title">${data.snippet.title}</h4>
+            <p class="channel-name">${data.snippet.channelTitle}</p>
+        </div>
+    </div>
+  </div>`
+  }
+
+      
+   
+})
+
+
+
+
 
   
 

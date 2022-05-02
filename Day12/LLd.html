@@ -31,7 +31,7 @@
             this._color=color;
 
         }
-        get abradabra(){//this is new from the below**
+        get type(){//this is new from the below**
             return this._type
         }
         set type(value){
@@ -137,14 +137,15 @@
         }
 
   //most important
-  parkVehicle(Vehicle){
+    parkVehicle(Vehicle){
       let slot = this.findSlot(Vehicle.type)
       if(!slot){
           console.log("No slots")
           return false
       }
       this.bookslot(slot)//128
-      let Ticket=new Ticket(slot.floornumber,slot.slot.number)
+      let ticket=new Ticket(slot.floornumber,slot.slot.number)
+      console.log("ticket is issue:",ticket)
 
 
   }
@@ -160,7 +161,7 @@
                 for(let slot of this._floors[i]._parkingspots){
                     // console.log("Slot",slot)
                     if(slot.type==type && !slot._isBooked){
-                        // console.log(slot)
+                        console.log(slot)
                         return {floornumber:i, slot:slot}
                         //object destructring
 
@@ -190,7 +191,9 @@
             this.issuedAt=new Date()
         }
     }
-    let pf1=new ParkingLot(3)
+    let pf1=new ParkingLot(1)
+    let b1=new Bike("Mh--1234","Black")
+    pf1.parkVehicle(b1)
     // console.log(pf1)
     pf1.findSlot("Bike")
 

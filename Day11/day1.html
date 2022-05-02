@@ -83,7 +83,9 @@ try{
   
 })
 // console.log(await res.json())
-const {translatedText}=await res.json()
+let data=await res.json()
+// const {translatedText}=await res.json()
+console.log(data.translatedText)
 document.getElementById("outvalue").innerText= translatedText
 }
 catch(err){

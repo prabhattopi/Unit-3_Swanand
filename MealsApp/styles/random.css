@@ -1,0 +1,66 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Radio Canada', sans-serif;
+}
+.conta{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.blink{
+    margin-top: 5rem;
+    width: 250px;
+    height: 70px;
+    padding: 1.2rem 0.5rem;
+    color: white;
+    background-color: var(--tenny-tawny);
+    border: none;
+    outline: none;
+    border-radius: 30px;
+    -webkit-border-radius: 30px;
+    -moz-border-radius: 30px;
+    -ms-border-radius: 30px;
+    -o-border-radius: 30px;
+    font-size: 16px;
+    font-weight: 600;
+    /* transform: translate(50%,-50%);
+    -webkit-transform: translate(50%,-50%);
+    -moz-transform: translate(50%,-50%);
+    -ms-transform: translate(50%,-50%);
+    -o-transform: translate(50%,-50%); */
+    animation: ka 1s linear infinite;
+    -webkit-animation: ka 1s linear infinite;
+}
+@keyframes ka {
+    0%{
+        background-color: blue;
+        color: white;
+        font-size: 25px;
+        /* width: 300px; */
+        /* height: 120px; */
+        /* font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif; */
+    }
+    50%{
+        background-color: rgb(238, 255, 0);
+       
+        /* width: 100px; */
+        /* height: 30px; */
+       /* font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; */
+    }
+    75%{
+        background-color: lime;
+        color: white;
+        font-size: 17px;
+    }
+    100%{
+        background-color: rgb(255, 0, 247);
+        color: rgb(12, 12, 12);
+        font-size: 20px;
+        /* height: 130px; */
+        /* width: 300px; */
+        /* font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; */
+    }
+    
+}

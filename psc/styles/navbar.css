@@ -1,0 +1,11 @@
+#container{
+ display: grid;
+ grid-template-columns: repeat(4,1fr);
+ grid-gap: 20px;
+ width: 80%;
+ margin: auto;
+}
+.img img{
+    width: 80%;
+    height: 70%;
+}

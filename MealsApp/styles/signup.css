@@ -1,0 +1,90 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Radio Canada', sans-serif;
+    
+}
+
+.container{
+    width: 50%;
+     height: fit-content;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    margin-top: -2rem;
+    /* background-color: rgb(225, 139, 108);  */
+   
+
+
+}
+.container .user{
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: stretch;
+ 
+  
+   
+   
+}
+.container .user input , .sbaka{
+   background-color: white;
+    font-size: 14px;
+    color:var(--tenny-tawny);
+  border: none;
+  outline: none;
+  width: 300px;
+  height: 50px;
+  padding: 0.4rem 0.5rem;
+  margin: 0.7rem auto;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  font-weight: 600;
+  border: 1px solid var(--tenny-tawny);
+}
+.sbaka{
+    background-color: white;
+    height: 70px;
+    font-size: 16px;
+    resize: none;
+    
+}
+.container .user input::placeholder{
+    color: var(--tenny-tawny);
+    font-weight: 600;
+}
+.container .user .sbaka::placeholder{
+    color: var(--tenny-tawny);
+    font-weight: 600;
+}
+button{
+    /*border: 1px solid var(--tenny-tawny);
+    */border: none;
+    border-radius: 10px;
+    color: white;
+    background-color: var(--tenny-tawny);
+    display: block;
+    margin: auto;
+    width: 200px;
+    height: 50px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+    padding: 0.9rem 0.3rem;
+    font-size: 16px;
+    text-align: center;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+
+}
+
+button:hover{
+    background-color: tomato;
+}
