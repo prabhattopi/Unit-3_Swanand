@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input id="Data" type="text" placeholder="Enter Your Zip Code">
+    <button onclick="falto()">Submit</button>
+</body>
+</html>
+<script>
+    function falto(){
+    let Input=document.getElementById("Data").value
+    const options = {
+
+	method: 'POST',
+	headers: {
+		'content-type': 'application/json',
+		'Content-Type': 'application/json',
+		'X-RapidAPI-Host': 'pincode.p.rapidapi.com',
+		'X-RapidAPI-Key': '29184eea1dmsha88a77eeeca6c0ep13f421jsnf88f500ebf8e'
+	},
+	body: `{"searchBy":"pincode","value":${Input}}`
+};
+
+fetch('https://pincode.p.rapidapi.com/', options)
+
+	.then(response => response.json())
+	.then(response =>{
+        console.log(response)
+
+
+    })
+	.catch(err => console.error(err));
+}
+
+</script>
