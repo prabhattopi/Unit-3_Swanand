@@ -37,3 +37,25 @@
     cursor: pointer;
     outline: none;
 }
+#buttons{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+    /* position: absolute; */
+    top:clac(100% - 35px);
+     margin-top: 20px;
+    
+}
+#buttons>div{
+    font-size: 19px;
+    margin:20px ;
+    padding: 10px 60px;
+    outline: none;
+    border: none;
+    background-color: aqua;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+}

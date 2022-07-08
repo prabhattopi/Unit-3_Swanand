@@ -1,8 +1,8 @@
-let searchImages=async(Apikey,query)=>{
+let searchImages=async(Apikey,query,order)=>{
    
    
     try{
-    let res=await fetch(`https://api.unsplash.com/search/photos?query=${query}&per_page=20&client_id=${Apikey}`)
+    let res=await fetch(`https://api.unsplash.com/search/photos?query=${query}&order_by=${order}&content_filter=high&per_page=20&client_id=${Apikey}`)
     let data=await res.json()
     return data
     }
